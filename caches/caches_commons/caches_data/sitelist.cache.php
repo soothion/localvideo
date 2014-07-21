@@ -23,7 +23,7 @@ return array (
   \'watermark_quality\' => \'80\',
   \'watermark_pos\' => \'9\',
 )',
-    'uuid' => '8201eb68-1087-11e4-bebb-21ca9381cc7e',
+    'uuid' => '2476818f-107a-11e4-b745-c81f661f012d',
     'url' => 'http://localhost/phpcms/',
   ),
 );

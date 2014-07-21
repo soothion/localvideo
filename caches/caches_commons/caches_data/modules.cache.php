@@ -314,8 +314,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'comment' => 
   array (
@@ -328,8 +328,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'link' => 
   array (
@@ -400,8 +400,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'poster' => 
   array (
@@ -414,8 +414,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'formguide' => 
   array (
@@ -447,8 +447,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'upgrade' => 
   array (
@@ -475,8 +475,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'sms' => 
   array (

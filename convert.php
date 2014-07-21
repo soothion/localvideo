@@ -20,6 +20,7 @@ class local_video
         $this->options=array(
             'org_path'=>'uploadfile/video/org/',
             'thumb_path'=>'uploadfile/thumb/',
+            'mp4_path'=>'uploadfile/video/mp4/',
         );
         $this->options = $options + $this->options;
         $this->ffmpeg=$ffmpeg;
@@ -78,7 +79,12 @@ class local_video
         if ($verifyToken == $this->options['token'])
         {
             $orgFile  = $this->options['org_path'] . $this->options['org'];
-            $mp4      = $this->ffmpeg . ' -i  ' . $this->phpcms_path . '/' . $orgFile . ' -vcodec libx264 -strict -2 -s 800X450 ' . $this->phpcms_path . '/uploadfile/video/mp4/' . $this->options['uniqid'] . '.mp4';
+            $setting=' ';
+            if(isset($this->options['video_size']))
+                $setting=$setting.'-s '.$this->options['video_size'];
+            if(isset($this->options['watermark']))
+                $setting=$setting.' -vf "'.$this->options['watermark'].'"';
+            $mp4      = $this->ffmpeg . ' -i  ' . $this->phpcms_path . '/' . $orgFile . ' -vcodec libx264 -strict -2 '.$setting.' ' . $this->phpcms_path .'/'. $this->options['mp4_path'] . $this->options['uniqid'] . '.mp4';
             @exec($mp4);
             $duration = $this->video_info($orgFile);
             $seconds  = intval($duration['seconds']);
@@ -105,7 +111,8 @@ class local_video
             $ftp_server    = pc_base::load_config('ftp_server');
             $remote_server = $_POST['remote_server'];
             $ftp_server    = $ftp_server[$remote_server];
-            pc_base::ftp_upload($this->phpcms_path . '/' . $orgFile,
+            if($ftp_server['ftp_server'])
+                pc_base::ftp_upload($this->phpcms_path . '/' . $orgFile,
                                 $ftp_server['ftp_server'],
                                 $ftp_server['ftp_user_name'],
                                 $ftp_server['ftp_user_pass']);

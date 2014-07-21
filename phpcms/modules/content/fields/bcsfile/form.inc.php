@@ -12,8 +12,12 @@
 
 EOF;
 		$timestamp=time();
-                $ftp_server=pc_base::load_config('ftp_server');
-                $remote_server=array_rand($ftp_server);
+                if($put_remote=='1')
+                    $remote_server='local';
+                else{
+                    $ftp_server=pc_base::load_config('ftp_server');
+                    $remote_server=array_rand($ftp_server);
+                }    
                 $remote_server_http=$ftp_server[$remote_server]['http_address'];
 		$my = '
 		<link href="'.JS_PATH.'uploadify/uploadify.css" rel="stylesheet" type="text/css" />
@@ -32,7 +36,7 @@ EOF;
 						"uploader" : "'.JS_PATH.'uploadify/uploadify.php",
 						"onUploadSuccess" : function(file, data, response) {
 						var uniqid=new Date().getTime();
-						$.post("convert.php",{"timestamp" : "'.$timestamp.'","token" : "'.md5('fire-rain.com' . $timestamp).'","main_size":"'.$main_size.'","remote_server":"'.$remote_server.'","thumb_size":"'.$thumb_size.'","org" : file.name,"uniqid" : uniqid});
+						$.post("convert.php",{"timestamp" : "'.$timestamp.'","token" : "'.md5('fire-rain.com' . $timestamp).'","video_size":"'.$video_size.'","main_size":"'.$main_size.'","remote_server":"'.$remote_server.'","thumb_size":"'.$thumb_size.'","watermark":"'.$watermark.'","org" : file.name,"uniqid" : uniqid});
 						var filename=uniqid+".mp4";
 						$("#local_video").val("'.$remote_server_http.'"+filename);
 							if(!$("#thumb").val()){
