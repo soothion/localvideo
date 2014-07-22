@@ -314,8 +314,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'comment' => 
   array (
@@ -328,8 +328,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'link' => 
   array (
@@ -400,8 +400,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'poster' => 
   array (
@@ -414,8 +414,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'formguide' => 
   array (
@@ -447,8 +447,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'upgrade' => 
   array (
@@ -475,8 +475,8 @@ return array (
     'setting' => '',
     'listorder' => '0',
     'disabled' => '0',
-    'installdate' => '2014-07-21',
-    'updatedate' => '2014-07-21',
+    'installdate' => '2014-07-10',
+    'updatedate' => '2014-07-10',
   ),
   'sms' => 
   array (
@@ -491,6 +491,20 @@ return array (
     'disabled' => '0',
     'installdate' => '2011-09-02',
     'updatedate' => '2011-09-02',
+  ),
+  'appqy_ckplayer' => 
+  array (
+    'module' => 'appqy_ckplayer',
+    'name' => 'CkPlayer',
+    'url' => 'appqy_ckplayer/',
+    'iscore' => '0',
+    'version' => '1.1',
+    'description' => 'CkPlayer 6.X 模块配置  2013 Appqy.com ',
+    'setting' => '',
+    'listorder' => '0',
+    'disabled' => '0',
+    'installdate' => '2013-06-01',
+    'updatedate' => '2013-06-01',
   ),
 );
 ?>

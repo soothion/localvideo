@@ -455,4 +455,7 @@ $LANG['clear_data'] = '一键清理';
 $LANG['player_manage'] = '播放器管理';
 $LANG['video_upload'] = '视频上传'; 
 $LANG['batch_upload'] = '批量上传';
+$LANG['video'] = '视频';
+$LANG['batch_upload'] = '批量上传';
+$LANG['batch_upload'] = '批量上传';
 ?>

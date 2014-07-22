@@ -371,8 +371,7 @@ class local_video
                 $setting=$setting.'-s '.$this->options['video_size'];
             if(isset($this->options['watermark']))
                 $setting=$setting.' -vf "'.$this->options['watermark'].'"';
-            $mp4      = $this->ffmpeg . ' -i  ' . $this->phpcms_path . '/' . $orgFile . ' -vcodec libx264 -strict -2 '.$setting.' ' . $this->phpcms_path .'/'. $this->options['mp4_path'] . $this->options['uniqid'] . '.mp4';
-            die($mp4);
+            $mp4      = $this->ffmpeg . ' -i  '  . $orgFile . ' -vcodec libx264 -strict -2 '.$setting.' ' . $this->options['mp4_path'] . $this->options['uniqid'] . '.mp4';
             exec($mp4);
             $duration = $this->video_info($orgFile);
             $seconds  = intval($duration['seconds']);
@@ -380,19 +379,19 @@ class local_video
             
             for ($i = 0; $i < 21; $i++)
             {
-                $targetPath = $this->phpcms_path . $this->options['thumb_path'] . $this->options['uniqid'] . '/';
+                $targetPath = $this->options['thumb_path'] . $this->options['uniqid'] . '/';
                 if (!file_exists($targetPath))
                     @mkdir(rtrim($targetPath, '/'), 0777);
                 $time       = $i * $offset;
                 $name       = $i == 0 ? 'default.jpg' : $i . '.jpg';
-                $img_size   = $_POST['thumb_size'];
+                $img_size   =$this->options['thumb_size'];
                 if ($i == 0)
                 {
                     $time     = 1;
                     $name     = $i == 0 ? 'default.jpg' : $i . '.jpg';
-                    $img_size = $_POST['main_size'];
+                    $img_size = $this->options['main_size'];
                 }
-                $jpg = $this->ffmpeg . ' -i  ' . $this->phpcms_path . '/' . $orgFile . ' -f  image2  -ss ' . $time . ' -vframes 1  -s ' . $img_size . ' ' . $targetPath . $name;
+                $jpg = $this->ffmpeg . ' -i  ' . $orgFile . ' -f  image2  -ss ' . $time . ' -vframes 1  -s ' . $img_size . ' ' . $targetPath . $name;
                 @exec($jpg);
             }
 
@@ -402,7 +401,7 @@ class local_video
             $ftp_server    = $ftp_server[$remote_server];
             
             if($ftp_server['ftp_server'])
-                pc_base::ftp_upload($this->phpcms_path . '/' . $orgFile,
+                pc_base::ftp_upload($orgFile,
                                 $ftp_server['ftp_server'],
                                 $ftp_server['ftp_user_name'],
                                 $ftp_server['ftp_user_pass']);
@@ -412,7 +411,7 @@ class local_video
                 $ftp_backup = pc_base::load_config('ftp_backup');
                 foreach ($ftp_backup as $v)
                 {
-                    pc_base::ftp_upload($this->phpcms_path . '/' . $orgFile,
+                    pc_base::ftp_upload( $orgFile,
                                         $ftp_backup['ftp_server'],
                                         $ftp_backup['ftp_user_name'],
                                         $ftp_backup['ftp_user_pass']);

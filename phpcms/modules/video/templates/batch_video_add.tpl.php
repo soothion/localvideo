@@ -25,9 +25,9 @@ include $this->admin_tpl('header', 'admin');
 
                     <td>
                         <div id="container">
-
-                            <input id='path' type='text' value='uploadfile/video/ftp'>
                             <input id='pickfiles' type='button' class='button' value='开始扫描'>
+                            <input id='path' type='text' name="path" value='uploadfile/video/ftp/'><font color="red">路径必须以/结束</font>
+                            
 
                         </div>
                     </td>

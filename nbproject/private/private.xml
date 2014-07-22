@@ -5,9 +5,13 @@
         <group>
             <file>file:/D:/wamp/www/phpcms/phpcms/modules/content/fields/bcsfile/form.inc.php</file>
             <file>file:/D:/wamp/www/phpcms/convert.php</file>
+            <file>file:/D:/wamp/www/phpcms/phpcms/modules/appqy_ckplayer/install/templates/show.html</file>
             <file>file:/D:/wamp/www/phpcms/phpcms/modules/content/fields/bcsfile/field_add_form.inc.php</file>
-            <file>file:/D:/wamp/www/phpcms/caches/configs/database.php</file>
+            <file>file:/D:/wamp/www/phpcms/phpcms/modules/video/batch_upload.php</file>
+            <file>file:/D:/wamp/www/phpcms/phpcms/templates/default/content/show_video.html</file>
+            <file>file:/D:/wamp/www/phpcms/phpcms/modules/video/templates/batch_video_add.tpl.php</file>
             <file>file:/D:/wamp/www/phpcms/phpcms/modules/content/fields/bcsfile/field_edit_form.inc.php</file>
+            <file>file:/D:/wamp/www/phpcms/phpcms/base.php</file>
         </group>
     </open-files>
 </project-private>
