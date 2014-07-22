@@ -17,11 +17,8 @@ return array (
     'setting' => 'array (
   \'upload_allowext\' => \'*.wmv;*.avi\',
   \'upload_allowsize\' => \'1024\',
-  \'put_remote\' => \'1\',
-  \'video_size\' => \'800x450\',
   \'thumb_size\' => \'800x600\',
-  \'main_size\' => \'1024x768\',
-  \'watermark\' => \'movie=logo.png [watermark];in[warktermark] overlay=0:0:1 [out]\',
+  \'main_size\' => \'1024*786\',
 )',
     'formattribute' => '',
     'unsetgroupids' => '',
@@ -39,11 +36,8 @@ return array (
     'isomnipotent' => '0',
     'upload_allowext' => '*.wmv;*.avi',
     'upload_allowsize' => '1024',
-    'put_remote' => '1',
-    'video_size' => '800x450',
     'thumb_size' => '800x600',
-    'main_size' => '1024x768',
-    'watermark' => 'movie=logo.png [watermark];in[warktermark] overlay=0:0:1 [out]',
+    'main_size' => '1024*786',
   ),
   'catid' => 
   array (

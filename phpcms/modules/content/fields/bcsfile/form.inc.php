@@ -12,7 +12,7 @@
 
 EOF;
 		$timestamp=time();
-                if($put_remote=='1')
+                if($put_remote=='0')
                     $remote_server='local';
                 else{
                     $ftp_server=pc_base::load_config('ftp_server');
