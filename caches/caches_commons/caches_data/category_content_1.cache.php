@@ -385,7 +385,7 @@ return array (
     'parentdir' => '',
     'catdir' => 'video',
     'url' => 'http://localhost/phpcms/index.php?m=content&c=index&a=lists&catid=9',
-    'items' => '5',
+    'items' => '1',
     'hits' => '0',
     'setting' => 'array (
   \'workflowid\' => \'\',

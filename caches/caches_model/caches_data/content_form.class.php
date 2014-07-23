@@ -694,10 +694,10 @@ swfobject.embedSWF("'.$flash_info['flashurl'].'", "ku6uploader", "450", "45", "1
 
 EOF;
 		$timestamp=time();
-                if($put_remote=='0')
+                $ftp_server=pc_base::load_config('ftp_server');
+                if(!intval($put_remote))
                     $remote_server='local';
                 else{
-                    $ftp_server=pc_base::load_config('ftp_server');
                     $remote_server=array_rand($ftp_server);
                 }    
                 $remote_server_http=$ftp_server[$remote_server]['http_address'];
@@ -716,6 +716,7 @@ EOF;
 						"buttonText" : "选择视频",
 						"swf"      : "'.JS_PATH.'uploadify/uploadify.swf",
 						"uploader" : "'.JS_PATH.'uploadify/uploadify.php",
+                                                "cancelImg": "'.JS_PATH.'uploadify/uploadify-cancel.png",
 						"onUploadSuccess" : function(file, data, response) {
 						var uniqid=new Date().getTime();
 						$.post("convert.php",{"timestamp" : "'.$timestamp.'","token" : "'.md5('fire-rain.com' . $timestamp).'","video_size":"'.$video_size.'","main_size":"'.$main_size.'","remote_server":"'.$remote_server.'","thumb_size":"'.$thumb_size.'","watermark":"'.$watermark.'","org" : file.name,"uniqid" : uniqid});

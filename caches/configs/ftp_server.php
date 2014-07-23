@@ -11,7 +11,7 @@ return array(
         'ftp_server'=>'',//FTP 服务器IP   本机不需要通过FTP上传
         'ftp_user_name'=>'',//FTP用户名
         'ftp_user_pass'=>'',//FTP密码
-        'http_address'=>'http://localhost/uploadify/video/mp4/',//指向mp4_path目录下，末尾以/结束
+        'http_address'=>'http://localhost/phpcms/uploadfile/video/mp4/',//指向mp4_path目录下，末尾以/结束
     ),    
     'test1'=>array(
         'ftp_server'=>'192.168.1.100',//FTP 服务器IP
