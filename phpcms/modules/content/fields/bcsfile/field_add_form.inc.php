@@ -25,7 +25,7 @@
     </tr>
         <tr> 
         <td>水印参数</td>
-        <td><input type="text" name="setting[watermark]" value="\"movie=logo.png [watermark];in[warktermark] overlay=0:0:1 [out]\"" size="40" class="input-text"><font color="red">比如：logo.png为水印图片，overlay前两个参数分别为距离左边与上边的距离</font></td>
+        <td><input type="text" name="setting[watermark]" value="movie=logo.png [logo]; [in][logo] overlay=10:10 [out]" size="40" class="input-text"><font color="red">比如：logo.png为水印图片，overlay前两个参数分别为距离左边与上边的距离</font></td>
     </tr>
 </table>
 

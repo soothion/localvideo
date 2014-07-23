@@ -27,7 +27,7 @@ include $this->admin_tpl('header', 'admin');
                         <div id="container">
                             <input id='pickfiles' type='button' class='button' value='开始扫描'>
                             <input id='path' type='text' name="path" value='uploadfile/video/ftp/'><font color="red">路径必须以/结束</font>
-                            
+
 
                         </div>
                     </td>
@@ -70,16 +70,64 @@ include $this->admin_tpl('header', 'admin');
 
                     <td width="120">栏目ID</td> 
                     <td>
-                        <input type="text" name="catid"/>
-                        <?php $timestamp=time();?>
-                        <input type="hidden" name="token" value="<?php echo md5('fire-rain.com'.$timestamp);?>"/>
-                        <input type="hidden" name="timestamp" value="<?php echo $timestamp?>"/>
+                        <?php $timestamp = time(); ?>
+                        <input type="hidden" name="token" value="<?php echo md5('fire-rain.com' . $timestamp); ?>"/>
+                        <input type="hidden" name="timestamp" value="<?php echo $timestamp ?>"/>
+                         <div style="width:500px; padding:2px; border:1px solid #d8d8d8; float:left; margin-top:10px; margin-right:10px; overflow:hidden">
+                        <table width="100%" cellspacing="0" class="table-list" >
+                                <thead>
+                                    <tr>
+                                    <th width="100"><?php echo L('catid');?></th>
+                                    <th ><?php echo L('catname');?></th>
+                                    <th width="150" ><?php echo L('select_model_name');?></th>
+                                    </tr>
+                                </thead>
+                            <tbody id="load_catgory">
+                            <?php echo $categorys;?>
+                            </tbody>
+                            </table>
+                        </div>
+
+                        <div style="overflow:hidden;_float:left;margin-top:10px;*margin-top:0;_margin-top:0; width:144px">
+                        <fieldset>
+                            <legend><?php echo L('category_checked');?></legend>
+                        <ul class='list-dot-othors' id='catname'></ul>
+                        </fieldset>
+                        </div>
                     </td>
 
                 </tr>
-
-
+               
             </table>
+           
+</div>
+<style type="text/css">
+.line_ff9966,.line_ff9966:hover td{background-color:#FF9966}
+.line_fbffe4,.line_fbffe4:hover td {background-color:#fbffe4}
+.list-dot-othors li{float:none; width:auto}
+</style>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	function select_list(obj,title,id) {
+		var sid = 'v'+id;
+		$(obj).attr('class','line_fbffe4');
+		var str = "<li id='"+sid+"'>·<input type='hidden' name='catids[]' value='"+id+"'><span>"+title+"</span><a href='javascript:;' class='close' onclick=\"remove_id('"+sid+"')\"></a></li>";
+		$('#catname').append(str);
+}
+
+$(document).ready(function(){
+    $("#load_catgory").load("?m=content&c=content&a=public_getsite_categorys&siteid=1");
+})
+		
+
+//移除ID
+function remove_id(id) {
+	$('#'+id).remove();
+}
+//-->
+</SCRIPT>
+
+
             <div class="bk15"></div>
             <input type="hidden" name="vid" id="vid" value="0">
             <input name="dosubmit" type="submit" value="<?php echo L('submit') ?>" class="button" id="dosubmit">
@@ -121,7 +169,7 @@ include $this->admin_tpl('header', 'admin');
                             $('#pickfiles').val('扫描中...');
 
 
-                       },
+                        },
                 success:
                         function(data) {
 

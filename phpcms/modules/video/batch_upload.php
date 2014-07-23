@@ -38,7 +38,7 @@ pc_base::load_app_func('global', 'video');
 	
 	public  function batch_add (){
 		
-		$catid = $_POST['catid'];
+		$catids = $_POST['catids'];
 	
 		ini_set("max_execution_time",600000);
 	
@@ -68,20 +68,19 @@ pc_base::load_app_func('global', 'video');
                                 $backup=intval($_POST['backup']);
 				$local_video=new local_video($options,FFMPEG_EXT,PC_PATH,$backup);
                                 $result=$local_video->convert();
-				$data = array(				
-								'inputtime' => time(),
-								'islink' => 0,							   
-								'catid' => $catid,
-								'title' => $_POST['title'],				
-								'description' => $_POST['description'],
-//								'content' => 'we videos',//
-//								'paginationtype' => 0,
-//								'maxcharperpage' => 10000,							 
-								'status' => 99,
-								'local_video'=>$result['url'],
-							);
-	
-				$this->db->add_content($data,1);
+                                foreach($catids as $catid){
+                                    $data = array(				
+                                                                    'inputtime' => time(),
+                                                                    'islink' => 0,							   
+                                                                    'catid' => $catid,
+                                                                    'title' => $_POST['title'].substr($v, 0,strripos($v,'.')),	//获取文件名			
+                                                                    'description' => $_POST['description'],						 
+                                                                    'status' => 99,
+                                                                    'local_video'=>$result['url'],
+                                                            );
+
+                                    $this->db->add_content($data,1);
+                                }
 		}
 		
 		showmessage(L('operation_success'));

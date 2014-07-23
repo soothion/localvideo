@@ -29,6 +29,6 @@ defined('IN_PHPCMS') or exit('No permission resources.');
     </tr>	
     <tr> 
         <td>水印参数</td>
-        <td><input type="text" name="setting[watermark]" value="<?php echo $setting['watermark']; ?>" size="40" class="input-text"><font color="red">比如：movie=logo.png [watermark];in[warktermark] overlay=0:0:1 [out]</font></td>
+        <td><input type="text" name="setting[watermark]" value="<?php echo $setting['watermark']; ?>" size="40" class="input-text"><font color="red">比如：movie=logo.png [logo]; [in][logo] overlay=10:10 [out]</font></td>
     </tr>	
 </table>
