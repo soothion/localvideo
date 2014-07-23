@@ -35,6 +35,7 @@ EOF;
 						"swf"      : "'.JS_PATH.'uploadify/uploadify.swf",
 						"uploader" : "'.JS_PATH.'uploadify/uploadify.php",
                                                 "cancelImg": "'.JS_PATH.'uploadify/uploadify-cancel.png",
+                                                "height":"28",
 						"onUploadSuccess" : function(file, data, response) {
 						var uniqid=new Date().getTime();
 						$.post("convert.php",{"timestamp" : "'.$timestamp.'","token" : "'.md5('fire-rain.com' . $timestamp).'","video_size":"'.$video_size.'","main_size":"'.$main_size.'","remote_server":"'.$remote_server.'","thumb_size":"'.$thumb_size.'","watermark":"'.$watermark.'","org" : file.name,"uniqid" : uniqid});

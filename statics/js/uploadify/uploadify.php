@@ -10,13 +10,13 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 $verifyToken = md5('unique_salt' . $_POST['timestamp']);
 
 if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
+    
 	$tempFile = $_FILES['Filedata']['tmp_name'];
 	$targetPath = '../../../uploadfile/video/org';
-	$targetFile = rtrim($targetPath,'/') . '/' . $_FILES['Filedata']['name'];
+	$targetFile = iconv('UTF-8','GB2312',rtrim($targetPath,'/') . '/' . $_FILES['Filedata']['name']);
 	
 	// Validate the file type
 	$fileParts = pathinfo($_FILES['Filedata']['name']);
-	
         move_uploaded_file($tempFile,$targetFile);
         echo '1';
 }

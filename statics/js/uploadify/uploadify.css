@@ -13,6 +13,11 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 	background-color: transparent;
 	border: none;
 	padding: 0;
+        background: url(swfBnt.png) no-repeat;
+        font-weight: 700;
+        padding-left: 12px;
+        color: #fff;
+
 }
 .uploadify:hover .uploadify-button {
 	background-color: transparent;

@@ -15,7 +15,7 @@ return array (
     'errortips' => '',
     'formtype' => 'bcsfile',
     'setting' => 'array (
-  \'upload_allowext\' => \'*.wmv;*.avi\',
+  \'upload_allowext\' => \'*.wmv;*.avi;*.flv\',
   \'upload_allowsize\' => \'1024\',
   \'put_remote\' => \'0\',
   \'video_size\' => \'1024*768\',
@@ -37,7 +37,7 @@ return array (
     'listorder' => '0',
     'disabled' => '0',
     'isomnipotent' => '0',
-    'upload_allowext' => '*.wmv;*.avi',
+    'upload_allowext' => '*.wmv;*.avi;*.flv',
     'upload_allowsize' => '1024',
     'put_remote' => '0',
     'video_size' => '1024*768',
