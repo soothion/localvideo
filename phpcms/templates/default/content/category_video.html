@@ -120,7 +120,7 @@ $('#tag{$r[catid]}').tabs("div.views{$r[catid]} > ul");
 			 {php $video_info = get_vid($v[id], $v[catid], $isspecial = 0);} 
                   <li>
                   <div class="w120">
-                      <div class="imgbox"><span class="tm">{dataformat($video_info['timelen'])}</span>
+                      <div class="imgbox"><span class="tm">{$v['videoTime']}</span>
 					  <a href="{APP_PATH}index.php?m=video&c=index&a=playlist&contentid={$v[id]}&catid={$v[catid]}&title={$v[title]}" class="j" title='{$v[title]}' onclick="toggle(this);return false;" id="abc{random(8)}" catid="{$v[catid]}" contentid="{$v[id]}"></a>
 					  
 					  <a href="{$v[url]}" title="{$v[title]}" target="_blank"><img src="{$v[thumb]}" width="120" height="75"></a></div>
