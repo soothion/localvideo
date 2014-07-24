@@ -66,7 +66,7 @@ pc_base::load_app_func('global', 'video');
                                     'org_path'=>$_POST['path'],
                                 );
                                 $backup=intval($_POST['backup']);
-				$local_video=new local_video($options,FFMPEG_EXT,PC_PATH,$backup);
+				$local_video=new local_video($options,FFMPEG_EXT,$backup);
                                 $result=$local_video->convert();
                                 foreach($catids as $catid){
                                     $data = array(				

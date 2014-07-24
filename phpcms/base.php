@@ -300,17 +300,16 @@ class pc_base {
 
 class local_video
 {
-    protected $options;
-    protected $ffmpeg;
-    protected $phpcms_path;
-    protected $backup;
+    public $options;
+    public $ffmpeg;
+    public $phpcms_path;
+    public $backup;
     
-    function __construct($options,$ffmpeg,$phpcms_path,$backup=true)
+    function __construct($options,$ffmpeg,$backup=true)
     {
         $this->options=pc_base::load_config('convert');
         $this->options = array_filter($options) + $this->options;
         $this->ffmpeg=$ffmpeg;
-        $this->phpcms_path=$phpcms_path;    
         $this->backup=$backup;    
     }
     

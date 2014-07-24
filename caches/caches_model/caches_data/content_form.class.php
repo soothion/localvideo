@@ -720,7 +720,10 @@ EOF;
                                                 "height":"28",
 						"onUploadSuccess" : function(file, data, response) {
 						var uniqid=new Date().getTime();
-						$.post("convert.php",{"timestamp" : "'.$timestamp.'","token" : "'.md5('fire-rain.com' . $timestamp).'","video_size":"'.$video_size.'","main_size":"'.$main_size.'","remote_server":"'.$remote_server.'","thumb_size":"'.$thumb_size.'","watermark":"'.$watermark.'","org" : file.name,"uniqid" : uniqid});
+						$.post("index.php?m=video&c=video_upload&a=convert",{"timestamp" : "'.$timestamp.'","token" : "'.md5('fire-rain.com' . $timestamp).'","video_size":"'.$video_size.'","main_size":"'.$main_size.'","remote_server":"'.$remote_server.'","thumb_size":"'.$thumb_size.'","watermark":"'.$watermark.'","org" : file.name,"uniqid" : uniqid});
+						$.post("index.php?m=video&c=video_upload&a=getTime",{"timestamp" : "'.$timestamp.'","token" : "'.md5('fire-rain.com' . $timestamp).'","org" : file.name},function(msg){
+                                                    $("input[name=\'info[videoTime]\']").val(msg);
+                                                });
 						var filename=uniqid+".mp4";
 						$("#local_video").val("'.$remote_server_http.'"+filename);
 							if(!$("#thumb").val()){
