@@ -705,34 +705,7 @@ EOF;
 		<link href="'.JS_PATH.'uploadify/uploadify.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="'.JS_PATH.'uploadify/jquery.uploadify.min.js"></script>
 		<script type="text/javascript">
-               $(function() {
-					$("#file_upload").uploadify({
-						"formData"     : {
-							"timestamp" : "'.$timestamp.'",
-							"token"     : "'.md5('unique_salt' . time()).'",
-						},
-                                                "sizeLimit" : "'.$upload_allowsize.'MB",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-						"fileTypeExts" : "'.$upload_allowext.'",
-						"buttonText" : "选择视频",
-						"swf"      : "'.JS_PATH.'uploadify/uploadify.swf",
-						"uploader" : "'.JS_PATH.'uploadify/uploadify.php",
-                                                "cancelImg": "'.JS_PATH.'uploadify/uploadify-cancel.png",
-                                                "height":"28",
-						"onUploadSuccess" : function(file, data, response) {
-						var uniqid=new Date().getTime();
-						$.post("index.php?m=video&c=video_upload&a=convert",{"timestamp" : "'.$timestamp.'","token" : "'.md5('fire-rain.com' . $timestamp).'","video_size":"'.$video_size.'","main_size":"'.$main_size.'","remote_server":"'.$remote_server.'","thumb_size":"'.$thumb_size.'","watermark":"'.$watermark.'","org" : file.name,"uniqid" : uniqid});
-						$.post("index.php?m=video&c=video_upload&a=getTime",{"timestamp" : "'.$timestamp.'","token" : "'.md5('fire-rain.com' . $timestamp).'","org" : file.name},function(msg){
-                                                    $("input[name=\'info[videoTime]\']").val(msg);
-                                                });
-						var filename=uniqid+".mp4";
-						$("#local_video").val("'.$remote_server_http.'"+filename);
-							if(!$("#thumb").val()){
-								$("#thumb").val("uploadfile/thumb/"+uniqid+".jpg");
-							}
-						}
-						
-					});
-				});
+       
 
                </script>
         ';
