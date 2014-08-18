@@ -62,18 +62,19 @@ pc_base::load_app_func('global', 'video');
                                     'uniqid'=>time(),
                                     'token'=>$_POST['token'],
                                     'timestamp'=>$_POST['timestamp'],
-                                    'org'=>$v,
+                                    'org'=>iconv('UTF-8', 'GB2312', $v),
                                     'org_path'=>$_POST['path'],
                                 );
                                 $backup=intval($_POST['backup']);
 				$local_video=new local_video($options,FFMPEG_EXT,$backup);
                                 $result=$local_video->convert();
                                 foreach($catids as $catid){
+                                    $pathinfo=pathinfo($v);
                                     $data = array(				
                                                                     'inputtime' => time(),
                                                                     'islink' => 0,							   
                                                                     'catid' => $catid,
-                                                                    'title' => $_POST['title'].substr($v, 0,strripos($v,'.')),	//获取文件名			
+                                                                    'title' => $_POST['title'].$pathinfo['filename'],	//获取文件名			
                                                                     'description' => $_POST['description'],						 
                                                                     'status' => 99,
                                                                     'local_video'=>$result['url'],
