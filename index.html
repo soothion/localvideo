@@ -32,14 +32,14 @@ $(function(){
 
     <div class="search">
     	<div class="tab" id="search">
-																<a href="javascript:;" onclick="setmodel(1, $(this));" style="outline:medium none;" hidefocus="true"  class="on" >新闻</a><span> | </span>										<a href="javascript:;" onclick="setmodel(3, $(this));" style="outline:medium none;" hidefocus="true" >图片</a><span> | </span>										<a href="javascript:;" onclick="setmodel(2, $(this));" style="outline:medium none;" hidefocus="true" >下载</a><span> | </span>										<a href="javascript:;" onclick="setmodel(52, $(this));" style="outline:medium none;" hidefocus="true" >专题</a>								</div>
+																<a href="javascript:;" onclick="setmodel(53, $(this));" style="outline:medium none;" hidefocus="true"  class="on" >文档模型</a><span> | </span>										<a href="javascript:;" onclick="setmodel(1, $(this));" style="outline:medium none;" hidefocus="true" >新闻</a><span> | </span>										<a href="javascript:;" onclick="setmodel(3, $(this));" style="outline:medium none;" hidefocus="true" >图片</a><span> | </span>										<a href="javascript:;" onclick="setmodel(2, $(this));" style="outline:medium none;" hidefocus="true" >下载</a><span> | </span>										<a href="javascript:;" onclick="setmodel(52, $(this));" style="outline:medium none;" hidefocus="true" >专题</a>								</div>
 
         <div class="bd">
             <form action="http://localhost/phpcms/index.php" method="get" target="_blank">
 				<input type="hidden" name="m" value="search"/>
 				<input type="hidden" name="c" value="index"/>
 				<input type="hidden" name="a" value="init"/>
-				<input type="hidden" name="typeid" value="1" id="typeid"/>
+				<input type="hidden" name="typeid" value="53" id="typeid"/>
 				<input type="hidden" name="siteid" value="1" id="siteid"/>
                 <input type="text" class="text" name="q" id="q"/><input type="submit" value="搜 索" class="button" />
             </form>
@@ -61,7 +61,7 @@ $(function(){
 						<li class="line">|</li>
 			<li><a href="http://localhost/phpcms/index.php?m=content&c=index&a=lists&catid=9"><span>视频</span></a></li>
 						<li class="line">|</li>
-			<li><a href="http://localhost/phpcms/index.php?m=content&c=index&a=lists&catid=10"><span>视频2</span></a></li>
+			<li><a href="http://localhost/phpcms/index.php?m=content&c=index&a=lists&catid=13"><span>文档</span></a></li>
 			            </ul>
         		        </map>
     </div> 
@@ -138,22 +138,25 @@ $(function(){
                 <div class="bk15 hr"></div>
                 
                 <ul class="list lh24 f14">
+                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=9&id=37" target="_blank" title="asdfasdfa" style="" >asdfasdfa</a></li>
+                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=9&id=36" target="_blank" title="asdfasdf" style="" >asdfasdf</a></li>
+                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=9&id=35" target="_blank" title="任意文件名" style="" >任意文件名</a></li>
+                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=9&id=34" target="_blank" title="IE测试" style="" >IE测试</a></li>
                                 	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=9&id=33" target="_blank" title="asdfasdfa" style="" >asdfasdfa</a></li>
-                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=9&id=32" target="_blank" title="视频秒数" style="" >视频秒数</a></li>
-                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=9&id=31" target="_blank" title="2测试前缀" style="" >2测试前缀</a></li>
-                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=9&id=29" target="_blank" title="1测试前缀" style="" >1测试前缀</a></li>
                                 </ul>
                             </div>
         </div>
         <div class="bk10"></div>		                <div class="box cat-area" style=" margin-right:10px">
-        		<h5 class="title-1">视频2<a href="http://localhost/phpcms/index.php?m=content&c=index&a=lists&catid=10" class="more">更多>></a></h5>
+        		<h5 class="title-1">文档<a href="http://localhost/phpcms/index.php?m=content&c=index&a=lists&catid=13" class="more">更多>></a></h5>
              <div class="content">
                                                         
                 <div class="bk15 hr"></div>
                 
                 <ul class="list lh24 f14">
-                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=10&id=30" target="_blank" title="2测试前缀" style="" >2测试前缀</a></li>
-                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=10&id=28" target="_blank" title="1测试前缀" style="" >1测试前缀</a></li>
+                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=13&id=6" target="_blank" title="txt" style="" >txt</a></li>
+                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=13&id=3" target="_blank" title="docx" style="" >docx</a></li>
+                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=13&id=2" target="_blank" title="XLS" style="" >XLS</a></li>
+                                	<li>·<a href="http://localhost/phpcms/index.php?m=content&c=index&a=show&catid=13&id=1" target="_blank" title="需求文档" style="" >需求文档</a></li>
                                 </ul>
                             </div>
         </div>
