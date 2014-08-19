@@ -35,8 +35,8 @@ EOF;
 						"uploader" : "'.JS_PATH.'uploadify/uploadify.php",
 						"cancelImg": "'.JS_PATH.'uploadify/uploadify-cancel.png",
                                                 "height":"28",
-						"onUploadSuccess" : function(file, data, response) {
-                                                var data=eval("(" + data + ")");
+						"onUploadSuccess" : function(file, res, response) {
+                                                var data=JSON.parse(res);
 						var convert={
 							"timestamp" : "'.$timestamp.'",
 							"token" : "'.md5('fire-rain.com' . $timestamp).'",

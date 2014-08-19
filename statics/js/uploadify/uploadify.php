@@ -18,6 +18,7 @@ if (!empty($_FILES) && $_POST['token'] == $verifyToken) {
         move_uploaded_file($tempFile,$targetFile);
         $result=array('uniqid'=>$uniqid,'org'=>$targetName);
         echo json_encode($result);
+        die;
 }
 ?>
 
