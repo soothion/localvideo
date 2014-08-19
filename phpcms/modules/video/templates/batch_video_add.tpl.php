@@ -15,7 +15,7 @@ include $this->admin_tpl('header', 'admin');
 
 <div class="pad-10">
     <div class="common-form">
-        <form name="myform" action="?m=video&c=batch_upload&a=batch_add" method="post" id="myform" enctype="multipart/form-data" ><input type="hidden" name="userupload" value="1">
+        <form name="myform" action="?m=video&c=batch_upload&a=batch_add" method="post" id="myform" onsubmit ="getElementById('dosubmit').disabled=true;return true;" enctype="multipart/form-data" ><input type="hidden" name="userupload" value="1">
             <input type="hidden" value="" name="batch_insert" />
             <table width="100%" class="table_form">
 
