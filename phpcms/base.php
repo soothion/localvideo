@@ -69,6 +69,7 @@ class pc_base {
 
             // login with username and password 
             $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass); 
+            ftp_pasv($conn_id, true);
             $pathinfo=pathinfo($file);
             $target=$pathinfo['basename'];
              // upload a file 
