@@ -50,13 +50,13 @@ pc_base::load_app_func('global', 'video');
  		
 	
 		foreach($picpaths as $k=>$v){
-                                if($_POST['remote'])
-                                    $remote_server='local';
-                                else{
-                                    $ftp_server=pc_base::load_config('ftp_server');
+                                if(isset($_POST['remote'])&&$_POST['remote']!=null)
+                                	$ftp_server=pc_base::load_config('ftp_server');
                                     $remote_server=array_rand($ftp_server);
+                                    
+                                else{
+                                    $remote_server='local';
                                 }   
-                                $remote_server_http=$ftp_server[$remote_server]['http_address'];
                                 $options=array(
                                     'remote_server'=>$remote_server,
                                     'uniqid'=>time(),
@@ -65,7 +65,8 @@ pc_base::load_app_func('global', 'video');
                                     'org'=>iconv('UTF-8', 'GB2312', $v),
                                     'org_path'=>$_POST['path'],
                                     'ftp_server'=>intval($_POST['remote']),
-                                    'ftp_backup'=>intval($_POST['backup'])
+                                    'ftp_backup'=>intval($_POST['backup']),
+                                    'remote_server'=>$remote_server
                                 );
 				$local_video=new local_video($options,FFMPEG_EXT);
                                 $result=$local_video->convert();
