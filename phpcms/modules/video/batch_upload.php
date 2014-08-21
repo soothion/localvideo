@@ -51,9 +51,10 @@ pc_base::load_app_func('global', 'video');
 	
 		foreach($picpaths as $k=>$v){
                                 if(isset($_POST['remote'])&&$_POST['remote']!=null)
+                                {
                                 	$ftp_server=pc_base::load_config('ftp_server');
                                     $remote_server=array_rand($ftp_server);
-                                    
+                                 }   
                                 else{
                                     $remote_server='local';
                                 }   
