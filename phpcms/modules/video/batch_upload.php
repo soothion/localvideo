@@ -50,7 +50,7 @@ pc_base::load_app_func('global', 'video');
  		
 	
 		foreach($picpaths as $k=>$v){
-                                if(isset($_POST['remote'])&&$_POST['remote']!=null)
+                                if($_POST['remote']=='2')
                                 {
                                 	$ftp_server=pc_base::load_config('ftp_server');
                                     $remote_server=array_rand($ftp_server);
@@ -70,6 +70,8 @@ pc_base::load_app_func('global', 'video');
                                     'remote_server'=>$remote_server
                                 );
 				$local_video=new local_video($options,FFMPEG_EXT);
+				             $orgFile  = $local_video->options['org_path'] . $local_video->options['org'];
+            				 $video_invo=$local_video->video_info($orgFile);
                                 $result=$local_video->convert();
                                 foreach($catids as $catid){
                                     $pathinfo=pathinfo($v);
@@ -81,6 +83,7 @@ pc_base::load_app_func('global', 'video');
                                                                     'description' => $_POST['description'],						 
                                                                     'status' => 99,
                                                                     'local_video'=>$result['url'],
+                                                                    'videoTime'=>$video_invo['seconds']
                                                             );
 
                                     $this->db->add_content($data,1);

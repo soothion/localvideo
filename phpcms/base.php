@@ -400,14 +400,14 @@ class local_video
             $remote_server = $this->options['remote_server'];
             $ftp_server    = $ftp_server[$remote_server];
             
-            if($this->options['ftp_server']&&$ftp_server['ftp_server'])
+            if($this->options['ftp_server']=='1'&&$ftp_server['ftp_server'])
                 pc_base::ftp_upload($mp4File,
                                 $ftp_server['ftp_server'],
                                 $ftp_server['ftp_user_name'],
                                 $ftp_server['ftp_user_pass']);
 
             //备份到所有FTP服务器
-            if($this->options['ftp_backup']){
+            if($this->options['ftp_backup']=='1'){
                 $ftp_backup = pc_base::load_config('ftp_backup');
                 foreach ($ftp_backup as $v)
                 {

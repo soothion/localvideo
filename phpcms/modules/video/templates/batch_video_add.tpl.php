@@ -44,14 +44,14 @@ include $this->admin_tpl('header', 'admin');
                     <td width="120">上传到远程服务器</td> 
                     <td>
                         <input type="radio" name="remote" value="1"/>是
-                        <input type="radio" name="remote" value="0"/>否
+                        <input type="radio" name="remote" value="2" checked/>否
                     </td>
                 </tr>
                 <tr>
                     <td width="120">是否备份</td> 
                     <td>
                         <input type="radio" name="backup" value="1"/>是
-                        <input type="radio" name="backup" value="0"/>否
+                        <input type="radio" name="backup" value="2" checked/>否
                     </td>
                 </tr>
                 <tr>
