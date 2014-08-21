@@ -1,4 +1,4 @@
-	function bcsfile($field, $value, $fieldinfo) {
+function bcsfile($field, $value, $fieldinfo) {
 		$list_str = $str = '';
 		extract(string2array($fieldinfo['setting']));
 		$string .= $str."";   
@@ -24,7 +24,7 @@ EOF;
 		<script type="text/javascript" src="'.JS_PATH.'uploadify/jquery.uploadify.min.js"></script>
 		<script type="text/javascript">
                $(function() {
-               		var convert={};
+					var convert={};
 					$("#file_upload").uploadify({
 						"formData"     : {
 							"timestamp" : "'.time().'",
@@ -50,7 +50,6 @@ EOF;
 							"uniqid" : data.uniqid
 
 						};
-						
 						$.post("index.php?m=video&c=video_upload&a=getTime",convert,function(msg){
                                                     $("input[name=\'info[videoTime]\']").val(msg);
                                                        });
@@ -59,7 +58,6 @@ EOF;
 						}
 						
 					});
-
 					$("input[name=\'dosubmit\']").click(function(){
 						$.post("index.php?m=video&c=video_upload&a=convert",convert);
 					})
