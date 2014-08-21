@@ -395,16 +395,21 @@ class local_video
                 @exec($jpg);
             }
 
-            //复制文件到对应的FTP服务器
-            $ftp_server    = pc_base::load_config('ftp_server');
-            $remote_server = $_POST['remote_server'];
-            $ftp_server    = $ftp_server[$remote_server];
-            
-            if($this->options['ftp_server']&&$ftp_server['ftp_server'])
-                pc_base::ftp_upload($mp4File,
-                                $ftp_server['ftp_server'],
-                                $ftp_server['ftp_user_name'],
-                                $ftp_server['ftp_user_pass']);
+
+            if($this->options['ftp_server']){
+	            //复制文件到对应的FTP服务器
+	            $ftp_server    = pc_base::load_config('ftp_server');
+	            $ftp_server=array_rand($ftp_server);
+	            $remote_server_http=$ftp_server['http_address'];
+                if($ftp_server['ftp_server'])
+	                pc_base::ftp_upload($mp4File,
+	                                $ftp_server['ftp_server'],
+	                                $ftp_server['ftp_user_name'],
+	                                $ftp_server['ftp_user_pass']);
+            }
+            else {
+            	$remote_server_http=$this->options['mp4_path'];
+            }
 
             //备份到所有FTP服务器
             if($this->options['ftp_backup']){
@@ -418,7 +423,7 @@ class local_video
                 }                
             }
 
-            $result['url']=$ftp_server['ftp_server']['http_address']. $this->options['mp4_path'] . $this->options['uniqid'] . '.mp4';//记录视频播放地址
+            $result['url']=$remote_server_http. $this->options['uniqid'] . '.mp4';//记录视频播放地址
             $result['uniqid']=$this->options['uniqid'];
             return $result;//返回处理结果
 
