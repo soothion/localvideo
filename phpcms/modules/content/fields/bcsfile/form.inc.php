@@ -24,6 +24,7 @@ EOF;
 		<script type="text/javascript" src="'.JS_PATH.'uploadify/jquery.uploadify.min.js"></script>
 		<script type="text/javascript">
                $(function() {
+               		var convert={};
 					$("#file_upload").uploadify({
 						"formData"     : {
 							"timestamp" : "'.time().'",
@@ -37,7 +38,7 @@ EOF;
                                                 "height":"28",
 						"onUploadSuccess" : function(file, res, response) {
                                                 var data=JSON.parse(res);
-						var convert={
+						convert={
 							"timestamp" : "'.$timestamp.'",
 							"token" : "'.md5('fire-rain.com' . $timestamp).'",
 							"video_size":"'.$video_size.'",
@@ -49,7 +50,7 @@ EOF;
 							"uniqid" : data.uniqid
 
 						};
-						$.post("index.php?m=video&c=video_upload&a=convert",convert);
+						
 						$.post("index.php?m=video&c=video_upload&a=getTime",convert,function(msg){
                                                     $("input[name=\'info[videoTime]\']").val(msg);
                                                        });
@@ -58,6 +59,10 @@ EOF;
 						}
 						
 					});
+
+					$("input[name=\'dosubmit\']").click(function(){
+						$.post("index.php?m=video&c=video_upload&a=convert",convert);
+					})
 				});
 
         </script>
