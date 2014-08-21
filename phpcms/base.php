@@ -412,9 +412,9 @@ class local_video
                 foreach ($ftp_backup as $v)
                 {
                     pc_base::ftp_upload( $mp4File,
-                                        $ftp_backup['ftp_server'],
-                                        $ftp_backup['ftp_user_name'],
-                                        $ftp_backup['ftp_user_pass']);
+                                        $v['ftp_server'],
+                                        $v['ftp_user_name'],
+                                        $v['ftp_user_pass']);
                 }                
             }
 
