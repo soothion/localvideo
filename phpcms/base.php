@@ -305,15 +305,12 @@ class local_video
 {
     public $options;
     public $ffmpeg;
-    public $phpcms_path;
-    public $backup;
     
-    function __construct($options,$ffmpeg,$backup=true)
+    function __construct($options,$ffmpeg)
     {
         $this->options=pc_base::load_config('convert');
         $this->options = array_filter($options) + $this->options;
-        $this->ffmpeg=$ffmpeg;
-        $this->backup=$backup;    
+        $this->ffmpeg=$ffmpeg; 
     }
     
     function video_info($file)
@@ -373,7 +370,8 @@ class local_video
                 $setting=$setting.'-s '.$this->options['video_size'];
             if(isset($this->options['watermark']))
                 $setting=$setting.' -vf "'.$this->options['watermark'].'"';
-            $mp4      = $this->ffmpeg . ' -i  '  . $orgFile . ' -vcodec libx264 -strict -2 '.$setting.' ' . $this->options['mp4_path'] . $this->options['uniqid'] . '.mp4';
+            $mp4File=$this->options['mp4_path'] . $this->options['uniqid'] . '.mp4';
+            $mp4      = $this->ffmpeg . ' -i  '  . $orgFile . ' -vcodec libx264 -strict -2 '.$setting.' ' .$mp4File;
             exec($mp4);
             $duration = $this->video_info($orgFile);
             $seconds  = intval($duration['seconds']);
@@ -402,18 +400,18 @@ class local_video
             $remote_server = $_POST['remote_server'];
             $ftp_server    = $ftp_server[$remote_server];
             
-            if($ftp_server['ftp_server'])
-                pc_base::ftp_upload($orgFile,
+            if($this->options['ftp_server']&&$ftp_server['ftp_server'])
+                pc_base::ftp_upload($mp4File,
                                 $ftp_server['ftp_server'],
                                 $ftp_server['ftp_user_name'],
                                 $ftp_server['ftp_user_pass']);
 
             //备份到所有FTP服务器
-            if($this->backup){
+            if($this->options['ftp_backup']){
                 $ftp_backup = pc_base::load_config('ftp_backup');
                 foreach ($ftp_backup as $v)
                 {
-                    pc_base::ftp_upload( $orgFile,
+                    pc_base::ftp_upload( $mp4File,
                                         $ftp_backup['ftp_server'],
                                         $ftp_backup['ftp_user_name'],
                                         $ftp_backup['ftp_user_pass']);

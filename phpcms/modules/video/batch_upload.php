@@ -64,9 +64,9 @@ pc_base::load_app_func('global', 'video');
                                     'timestamp'=>$_POST['timestamp'],
                                     'org'=>iconv('UTF-8', 'GB2312', $v),
                                     'org_path'=>$_POST['path'],
+                                    'ftp_backup'=>intval($_POST['backup'])
                                 );
-                                $backup=intval($_POST['backup']);
-				$local_video=new local_video($options,FFMPEG_EXT,$backup);
+				$local_video=new local_video($options,FFMPEG_EXT);
                                 $result=$local_video->convert();
                                 foreach($catids as $catid){
                                     $pathinfo=pathinfo($v);
