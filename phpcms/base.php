@@ -384,7 +384,7 @@ class local_video
                     @mkdir(rtrim($targetPath, '/'), 0777);
                 $time       = $i * $offset;
                 $name       = $i == 0 ? 'default.jpg' : $i . '.jpg';
-                $img_size   =$this->options['thumb_size'];
+                $img_size   =$this->options['thumb_size'.$i]?$this->options['thumb_size'.$i]:$this->options['thumb_size'];
                 if ($i == 0)
                 {
                     $time     = 1;
