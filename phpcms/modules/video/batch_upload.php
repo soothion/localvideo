@@ -147,7 +147,7 @@ pc_base::load_app_func('global', 'video');
 				if($file == '.' || $file == '..')
 					continue;
 				
-					$arr[] = iconv('GB2312', 'UTF-8', $file); 
+					$arr[] = iconv('GBK', 'UTF-8', $file); 
 			}
 			return $arr;
 	
