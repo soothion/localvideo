@@ -391,7 +391,7 @@ class local_video
                     $name     = $i == 0 ? 'default.jpg' : $i . '.jpg';
                     $img_size = $this->options['main_size'];
                 }
-                $jpg = $this->ffmpeg . ' -i  "' . $orgFile . '" -f  image2  -ss ' . $time . ' -vframes 1  -s ' . $img_size . ' ' . $targetPath . $name;
+                $jpg = $this->ffmpeg . ' -i  "' . $orgFile . '" -f  image2  -ss -g 1 -keyint_min 2 ' . $time . ' -vframes 1  -s ' . $img_size . ' ' . $targetPath . $name;
                 @exec($jpg);
             }
 
