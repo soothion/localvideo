@@ -371,7 +371,7 @@ class local_video
             if(isset($this->options['watermark']))
                 $setting=$setting.' -vf "'.$this->options['watermark'].'"';
             $mp4File=$this->options['mp4_path'] . $this->options['uniqid'] . '.mp4';
-            $mp4      = $this->ffmpeg . ' -i  "'  . $orgFile . '" -vcodec libx264 -movflags faststart -strict -2 -g 1 -keyint_min 2 '.$setting.' ' .$mp4File;
+            $mp4      = $this->ffmpeg . ' -i  "'  . $orgFile . '" -vcodec libx264 -movflags faststart -strict -2 '.$setting.' ' .$mp4File;
             exec($mp4);
             $duration = $this->video_info($orgFile);
             $seconds  = intval($duration['seconds']);
