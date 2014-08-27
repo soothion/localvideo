@@ -377,7 +377,7 @@ class local_video
             $seconds  = intval($duration['seconds']);
             $offset   = intval($seconds / 21);
             
-            for ($i = 0; $i < 21; $i++)
+            for ($i = 0; $i < 27; $i++)
             {
                 $targetPath = $this->options['thumb_path'] . $this->options['uniqid'] . '/';
                 if (!file_exists($targetPath))
