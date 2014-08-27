@@ -26,6 +26,9 @@ pc_base::load_app_func('global', 'video');
 		parent::__construct();
 	
 		$this->db = pc_base::load_model('content_model');
+		$this->siteid=1;
+                param::set_cookie('siteid',1);
+		$this->categorys = getcache('category_content_'.$this->siteid,'commons'); 
 	
 		
 	}
