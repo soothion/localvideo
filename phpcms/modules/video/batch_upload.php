@@ -23,8 +23,6 @@ pc_base::load_app_func('global', 'video');
  
 	public function __construct() {
 	
-		parent::__construct();
-	
 		$this->db = pc_base::load_model('content_model');
 		$this->siteid=1;
                 param::set_cookie('siteid',1);
