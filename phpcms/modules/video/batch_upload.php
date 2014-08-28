@@ -108,8 +108,8 @@ pc_base::load_app_func('global', 'video');
 		} */
 		
 	//	$files = array_filter($files);
-		if(trim($_POST['path']!=''))
-                    $this->path=$_POST['path'];
+		// if(trim($_POST['path']!=''))
+  //                  $this->path=$_POST['path'];
 		$upload_files = $this -> traverse($this -> path);
 
 		//$un_use = empty($files) ? $upload_files : array_diff($upload_files,$files);
